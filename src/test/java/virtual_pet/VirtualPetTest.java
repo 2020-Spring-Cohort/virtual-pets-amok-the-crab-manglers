@@ -11,22 +11,22 @@ public class VirtualPetTest {
 
     @BeforeEach
     void setUp() {
-        underTest = new VirtualPet("CRABORG");
+        underTest = new VirtualPet("","");
     }
 
     @Test
-    public void ShouldBeAbleToCreateVirtualPet() {
-        VirtualPet underTest = new VirtualPet("CRABORG");
+    public void shouldBeAbleToCreateVirtualPet() {
+        VirtualPet underTest = new VirtualPet("","");
     }
 
     @Test
     public void petShouldHaveANameCraborg() {
         String result = underTest.getName();
-        assertEquals("CRABORG", result);
+        assertEquals("", result);
     }
 
     @Test
-    public void PetShouldHaveHungerSetToTenByDefault() {
+    public void petShouldHaveHungerSetToTenByDefault() {
         int result = underTest.getHunger();
         assertEquals(10, result);
     }
@@ -48,21 +48,33 @@ public class VirtualPetTest {
     }
 
     @Test
-    public void PetShouldHaveBoredomSetToZeroByDefault() {
+    public void petShouldHaveBoredomSetToZeroByDefault() {
         int result = underTest.getBored();
         assertEquals(0, result);
     }
 
     @Test
-    public void PetShouldIncreaseBoredomBy1() {
+    public void petShouldIncreaseBoredomBy1() {
         underTest.bored();
         int result = underTest.getBored();
     }
     @Test
-    public void ActivityShouldDecreaseBoredom(){
+    public void activityShouldDecreaseBoredom(){
         for (int b = 10; b > 0; b--);
         underTest.activity();
     }
+
+    @Test
+    public void nameShouldInitializeToBlank(){
+        underTest.getName();
+
+    }
+
+    @Test
+    public void typeShouldInitializeToNoType(){
+        underTest.getType();
+    }
+
 
 
 }
