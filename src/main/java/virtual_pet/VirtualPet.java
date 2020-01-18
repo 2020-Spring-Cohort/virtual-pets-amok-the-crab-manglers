@@ -1,19 +1,23 @@
 package virtual_pet;
 
 public class VirtualPet {
-    private int hunger = 10;
-    private int bored = 0;
-    private String name = "";
-    private String type = "NOTYPE";
+    private static final int DEFAULT_HUNGER = 10;
+    private static final int DEFAULT_BOREDOM = 0;
+    private static final String DEFAULT_NAME = "";
+    private static final String DEFAULT_TYPE = "NOTYPE";
 
+    private int hunger = DEFAULT_HUNGER;
+    private int bored = DEFAULT_BOREDOM;
+    private String name = DEFAULT_NAME;
+    private String type = DEFAULT_TYPE;
 
     public VirtualPet(String name,String petType) {
-        this.setName(name);
+        this.name = name;
         if (petType.equalsIgnoreCase("C")){
-            this.setType("Cyborg");
+            this.type = "Cyborg";
         }
         if (petType.equalsIgnoreCase("O")){
-            this.setType("Organic");
+            this.type = "Organic";
         }
 
     }
@@ -23,16 +27,8 @@ public class VirtualPet {
         return type;
     }
 
-    public void setType(String type) {
-        this.type = type;
-    }
-
     public String getName() {
         return this.name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public int getHunger() {
