@@ -3,6 +3,7 @@ package virtual_pet;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class VirtualPetTest {
@@ -61,20 +62,16 @@ public class VirtualPetTest {
     }
     @Test
     public void activityShouldDecreaseBoredom(){
-        underTest.getBored();
+        underTest.bored();
         underTest.activity();
-        assertEquals(0,result);
-    }
-
-    @Test
-    public void nameShouldInitializeToBlank(){
-        underTest.getName();
-
+        assertEquals(0, underTest.getBored());
     }
 
     @Test
     public void typeShouldInitializeToNoType(){
         underTest.getType();
+        String result = underTest.getType();
+        assertEquals("NOTYPE", result);
     }
 
 
