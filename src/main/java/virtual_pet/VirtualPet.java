@@ -5,19 +5,21 @@ public class VirtualPet {
     private static final int DEFAULT_BORED = 0;
     private static final String DEFAULT_NAME = "";
     private static final String DEFAULT_TYPE = "NOTYPE";
+    private static final String DEFAULT_STATUS = "unAdopted";
 
     private int hunger = DEFAULT_HUNGER;
     private int bored = DEFAULT_BORED;
     private String name = DEFAULT_NAME;
     private String type = DEFAULT_TYPE;
+    private String status = DEFAULT_STATUS;
 
 
-    public VirtualPet(String name,String petType) {
+    public VirtualPet(String name, String petType) {
         this.name = name;
-        if (petType.equalsIgnoreCase("C")){
+        if (petType.equalsIgnoreCase("C")) {
             this.type = "Cyborg";
         }
-        if (petType.equalsIgnoreCase("O")){
+        if (petType.equalsIgnoreCase("O")) {
             this.type = "Organic";
         }
 
@@ -59,5 +61,12 @@ public class VirtualPet {
         if (this.bored < 0) {
             this.bored = 0;
         }
+    }
+    public void adopt(){
+        this.status = "Adopted";
+    }
+
+    public String getStatus() {
+        return status;
     }
 }

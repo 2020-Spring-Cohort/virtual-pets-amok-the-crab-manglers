@@ -69,11 +69,14 @@ public class VirtualPetTest {
 
     @Test
     public void typeShouldInitializeToNoType(){
-        underTest.getType();
         String result = underTest.getType();
         assertEquals("NOTYPE", result);
     }
-
+    @Test
+    public void statusShouldBeUnAdoptedByDefault(){
+        String result = underTest.getStatus();
+        assertEquals("unAdopted", result);
+    }
 
 
 }
