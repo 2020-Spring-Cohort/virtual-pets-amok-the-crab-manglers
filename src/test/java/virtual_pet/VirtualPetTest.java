@@ -57,11 +57,13 @@ public class VirtualPetTest {
     public void petShouldIncreaseBoredomBy1() {
         underTest.bored();
         int result = underTest.getBored();
+        assertEquals(1,result);
     }
     @Test
     public void activityShouldDecreaseBoredom(){
-        for (int b = 10; b > 0; b--);
+        underTest.getBored();
         underTest.activity();
+        assertEquals(0,result);
     }
 
     @Test
