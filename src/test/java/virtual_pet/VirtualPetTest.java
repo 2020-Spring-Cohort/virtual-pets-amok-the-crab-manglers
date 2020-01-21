@@ -20,7 +20,7 @@ public class VirtualPetTest {
     }
 
     @Test
-    public void petShouldHaveANameCraborg() {
+    public void petShouldHaveBlankName() {
         String result = underTest.getName();
         assertEquals("", result);
     }

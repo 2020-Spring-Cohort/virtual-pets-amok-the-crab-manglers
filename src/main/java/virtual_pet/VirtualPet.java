@@ -8,12 +8,12 @@ public class VirtualPet {
 
 
     public VirtualPet(String name,String petType) {
-        this.setName(name);
+        this.name = name;
         if (petType.equalsIgnoreCase("C")){
-            this.setType("Cyborg");
+            this.type = "Cyborg";
         }
         if (petType.equalsIgnoreCase("O")){
-            this.setType("Organic");
+            this.type = "Organic";
         }
 
     }
@@ -23,16 +23,8 @@ public class VirtualPet {
         return type;
     }
 
-    public void setType(String type) {
-        this.type = type;
-    }
-
     public String getName() {
         return this.name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public int getHunger() {
