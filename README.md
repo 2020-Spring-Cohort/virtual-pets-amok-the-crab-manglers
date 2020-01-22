@@ -1,35 +1,4 @@
-﻿Crabs:
-Hunger
-Thirst
-Cleanliness
-Boredom
-Anger
-Energy
-
-Cleanliness/Sick/DEATH
-   Bored/Anger
-   Hunger+time=death
-
-Clean:
-   Change water/tank.
-
-Boredom:
-
-
-Hunger:
-   Feeding Xamount.
-   +food=dirty (poop)
-
-Crab traits:
-1) hat dance
-2) backflip
-3) swordfight
-
-
-
-
-
-# Module 1 Project
+﻿# Module 1 Project
 
 ## Virtual Pets Amok
 

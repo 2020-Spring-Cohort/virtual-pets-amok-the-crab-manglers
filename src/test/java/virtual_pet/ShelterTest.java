@@ -9,9 +9,14 @@ public class ShelterTest {
     private Shelter underTest = new Shelter();
 
     @Test
-    public void AdoptionShouldChangeStatusToAdopted(){
+    public void AdoptionShouldChangeStatusToAdopted() {
         underTest.choosePet("Bob");
-        assertEquals("Adopted",underTest.pets.get("Bob").getStatus());
+        assertEquals("Adopted", underTest.pets.get("Bob").getStatus());
+    }
+    @Test
+    public void adoptionShouldChangeStatusToAdopted(){
+        underTest.choosePet("Charlie");
+        assertEquals("Adopted", underTest.pets.get("Charlie").getStatus());
     }
 
 }

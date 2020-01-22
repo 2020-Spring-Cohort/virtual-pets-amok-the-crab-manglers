@@ -43,10 +43,12 @@ public class Shelter {
         System.out.println("Choose between Bob (Organic) & Charlie (Cyborg)");
         System.out.println(pets.keySet());
     }
-    public void choosePet(String choice){
+
+    public void choosePet(String choice) {
         System.out.println("You chose " + choice + "!");
         System.out.println("He is " + this.pets.get(choice).getType());
         this.pets.get(choice).setStatus("Adopted");
+        this.pets.get(choice).tick();
     }
 
 

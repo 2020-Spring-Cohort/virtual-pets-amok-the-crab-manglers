@@ -1,7 +1,7 @@
 package virtual_pet;
 
 public class VirtualPet {
-    private static final int DEFAULT_HUNGER = 10;
+    private static final int DEFAULT_HUNGER = 0;
     private static final int DEFAULT_BORED = 0;
     private static final String DEFAULT_NAME = "";
     private static final String DEFAULT_TYPE = "NOTYPE";
@@ -25,6 +25,10 @@ public class VirtualPet {
 
     }
 
+    public VirtualPet(String bob) {
+
+    }
+
 
     public String getType() {
         return type;
@@ -39,7 +43,8 @@ public class VirtualPet {
     }
 
     public void feed() {
-        hunger -= 3;
+        this.tick();
+        hunger -= 4;
         if (hunger < 0) {
             hunger = 0;
         }
@@ -57,12 +62,18 @@ public class VirtualPet {
     }
 
     public void activity() {
-        this.bored -= 1;
+        this.tick();
+        this.bored -= 2;
         if (this.bored < 0) {
             this.bored = 0;
         }
     }
-    public void adopt(){
+
+    public void hungry() {
+        this.hunger += 1;
+    }
+
+    public void adopt() {
         this.status = "Adopted";
     }
 
@@ -70,7 +81,13 @@ public class VirtualPet {
         return status;
     }
 
-    public void setStatus(String newStatus){
+    public void setStatus(String newStatus) {
         this.status = newStatus;
+    }
+
+    public void tick() {
+        this.bored();
+        this.hungry();
+
     }
 }

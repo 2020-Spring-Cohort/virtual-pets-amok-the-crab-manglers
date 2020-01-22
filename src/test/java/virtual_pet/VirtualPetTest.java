@@ -12,12 +12,12 @@ public class VirtualPetTest {
 
     @BeforeEach
     void setUp() {
-        underTest = new VirtualPet("","");
+        underTest = new VirtualPet("", "");
     }
 
     @Test
     public void shouldBeAbleToCreateVirtualPet() {
-        VirtualPet underTest = new VirtualPet("","");
+        VirtualPet underTest = new VirtualPet("", "");
     }
 
     @Test
@@ -29,14 +29,15 @@ public class VirtualPetTest {
     @Test
     public void petShouldHaveHungerSetToTenByDefault() {
         int result = underTest.getHunger();
-        assertEquals(10, result);
+        assertEquals(0, result);
+        //10 means pet hungry.
     }
 
     @Test
     public void feedShouldDecreaseHungerBy3() {
         underTest.feed();
         int result = underTest.getHunger();
-        assertEquals(7, result);
+        assertEquals(0, result);
     }
 
     @Test
@@ -58,26 +59,48 @@ public class VirtualPetTest {
     public void petShouldIncreaseBoredomBy1() {
         underTest.bored();
         int result = underTest.getBored();
-        assertEquals(1,result);
+        assertEquals(1, result);
     }
+
     @Test
-    public void activityShouldDecreaseBoredom(){
+    public void activityShouldDecreaseBoredom() {
         underTest.bored();
         underTest.activity();
         assertEquals(0, underTest.getBored());
     }
 
     @Test
-    public void typeShouldInitializeToNoType(){
+    public void typeShouldInitializeToNoType() {
         String result = underTest.getType();
         assertEquals("NOTYPE", result);
     }
+
     @Test
-    public void statusShouldBeUnAdoptedByDefault(){
+    public void statusShouldBeUnAdoptedByDefault() {
         String result = underTest.getStatus();
         assertEquals("unAdopted", result);
     }
 
+    @Test
+    public void hungryShouldIncreaseHunger() {
+        underTest.hungry();
+        int result = underTest.getHunger();
+        assertEquals(1, result);
+    }
+
+    @Test
+    public void tickShouldIncreaseHunger() {
+        underTest.tick();
+        int result = underTest.getHunger();
+        assertEquals(1, result);
+    }
+
+    @Test
+    public void tickShouldIncreaseBoredom() {
+        underTest.tick();
+        int result = underTest.getBored();
+        assertEquals(1, result);
+    }
 
 
 }
