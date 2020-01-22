@@ -12,7 +12,7 @@ public class Shelter {
     private static final int DEFAULT_PET_NUMBER = 0;
 
     private int numberOfPets = DEFAULT_PET_NUMBER;
-    private Map<String, VirtualPet> pets = new HashMap<>();
+    public Map<String, VirtualPet> pets = new HashMap<>();
 
     public Shelter() {
         VirtualPet bob = new VirtualPet("Bob", "C");
@@ -46,6 +46,7 @@ public class Shelter {
     public void choosePet(String choice){
         System.out.println("You chose " + choice + "!");
         System.out.println("He is " + this.pets.get(choice).getType());
+        this.pets.get(choice).setStatus("Adopted");
     }
 
 
