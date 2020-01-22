@@ -1,6 +1,7 @@
 package virtual_pet;
 
 import java.lang.reflect.Array;
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -14,6 +15,10 @@ public class Shelter {
     private Map<String, VirtualPet> pets = new HashMap<>();
 
     public Shelter() {
+        VirtualPet bob = new VirtualPet("Bob", "C");
+        VirtualPet charlie = new VirtualPet("Charlie", "O");
+        this.addPet(bob);
+        this.addPet(charlie);
     }
 
     public int getNumberOfPets() {
@@ -35,15 +40,18 @@ public class Shelter {
     }
 
     public void listPets() {
-        int count = 0;
-        while (count < this.numberOfPets){
-            String currentPet = this.pets.get(count).getName();
-            System.out.println(pets.get(currentPet) + ", who is of type " + pets.get(currentPet).getType());
-            count += 1;
-        }
-
+        System.out.println("Choose between Bob (Organic) & Charlie (Cyborg)");
+        System.out.println(pets.keySet());
+    }
+    public void choosePet(String choice){
+        System.out.println("You chose " + choice + "!");
+        System.out.println("He is " + this.pets.get(choice).getType());
     }
 
 
 }
+
+
+
+
 
