@@ -1,7 +1,6 @@
 package virtual_pet;
 
 import java.lang.reflect.Array;
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;

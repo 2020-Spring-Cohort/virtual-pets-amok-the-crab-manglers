@@ -6,11 +6,13 @@ public class VirtualPet {
     private static final String DEFAULT_NAME = "";
     private static final String DEFAULT_TYPE = "NOTYPE";
     private static final String DEFAULT_STATUS = "unAdopted";
+    private static final int DEFAULT_HEALTH = 100;
 
+    private int health = DEFAULT_HEALTH;
     private int hunger = DEFAULT_HUNGER;
     private int bored = DEFAULT_BORED;
-    private String name = DEFAULT_NAME;
-    private String type = DEFAULT_TYPE;
+    public String name = DEFAULT_NAME;
+    public String type = DEFAULT_TYPE;
     private String status = DEFAULT_STATUS;
 
 
@@ -25,11 +27,6 @@ public class VirtualPet {
 
     }
 
-    public VirtualPet(String bob) {
-
-    }
-
-
     public String getType() {
         return type;
     }
@@ -42,13 +39,27 @@ public class VirtualPet {
         return hunger;
     }
 
-    public void feed() {
+    public void feedOrOil() {
         this.tick();
+        if (this.getType().equalsIgnoreCase("Organic")){
+            System.out.println("You fed " + this.getName());
+        }else if(this.getType().equalsIgnoreCase("Cyborg")){
+            System.out.println("You Oiled " + this.getName());
+        }
         hunger -= 4;
         if (hunger < 0) {
             hunger = 0;
         }
     }
+
+
+
+
+
+
+
+
+
 
     public int getBored() {
         return this.bored;
@@ -88,6 +99,13 @@ public class VirtualPet {
     public void tick() {
         this.bored();
         this.hungry();
+        if (this.getHunger() == 10) {
+            this.health -= 5;
+        }
 
+    }
+
+    public int getHealth() {
+        return this.health;
     }
 }

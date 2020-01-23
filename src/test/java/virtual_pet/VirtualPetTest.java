@@ -35,7 +35,7 @@ public class VirtualPetTest {
 
     @Test
     public void feedShouldDecreaseHungerBy3() {
-        underTest.feed();
+        underTest.feedOrOil();
         int result = underTest.getHunger();
         assertEquals(0, result);
     }
@@ -43,7 +43,7 @@ public class VirtualPetTest {
     @Test
     public void feedingAPetShouldNotDecreaseHungerBellowZero() {
         for (int i = 0; i < 5; i++) {
-            underTest.feed();
+            underTest.feedOrOil();
         }
         int result = underTest.getHunger();
         assertEquals(0, result);
@@ -101,6 +101,5 @@ public class VirtualPetTest {
         int result = underTest.getBored();
         assertEquals(1, result);
     }
-
 
 }
