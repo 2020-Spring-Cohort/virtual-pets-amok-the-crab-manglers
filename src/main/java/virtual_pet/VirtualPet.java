@@ -18,6 +18,7 @@ public class VirtualPet {
 
     public VirtualPet(String name, String petType) {
         this.name = name;
+
         if (petType.equalsIgnoreCase("C")) {
             this.type = "Cyborg";
         }
@@ -51,15 +52,6 @@ public class VirtualPet {
             hunger = 0;
         }
     }
-
-
-
-
-
-
-
-
-
 
     public int getBored() {
         return this.bored;

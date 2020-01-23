@@ -14,8 +14,8 @@ public class Shelter {
     public Map<String, VirtualPet> pets = new HashMap<>();
 
     public Shelter() {
-        VirtualPet bob = new VirtualPet("Bob", "C");
-        VirtualPet charlie = new VirtualPet("Charlie", "O");
+        VirtualPet bob = new VirtualPet("Bob", "O");
+        VirtualPet charlie = new VirtualPet("Charlie", "C");
         this.addPet(bob);
         this.addPet(charlie);
     }
