@@ -16,19 +16,21 @@ public class ShelterTest {
         underTest.choosePet("Bob");
         assertTrue(underTest.pets.get("BOB").getAdopted());
     }
+
     @Test
-        public void adoptionShouldChangeStatusToAdopted(){
+    public void adoptionShouldChangeStatusToAdopted() {
         underTest.choosePet("Charlie");
         assertTrue(underTest.pets.get("CHARLIE").getAdopted());
     }
+
     @Test
-    public void numberOfPetsShouldBeTwo(){
+    public void numberOfPetsShouldBeTwo() {
         int result = underTest.getNumberOfPets();
         assertEquals(result, 2);
     }
 
     @Test
-    public void listAllPets(){
+    public void listAllPets() {
         String result = underTest.listPets();
         assertEquals("[BOB, CHARLIE]", result);
 

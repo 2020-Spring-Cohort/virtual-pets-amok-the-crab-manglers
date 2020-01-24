@@ -71,7 +71,6 @@ public class VirtualPetTest {
     }
 
 
-
     @Test
     public void adoptedStatusShouldBeFalse() {
         boolean result = underTest.getAdopted();
@@ -98,16 +97,20 @@ public class VirtualPetTest {
         int result = underTest.getBored();
         assertEquals(1, result);
     }
+
     @Test
-    public void getHealthReturnsHealth(){
+    public void getHealthReturnsHealth() {
         int result = underTest.getHealth();
-        assertTrue(result == 100 );
+        assertTrue(result == 100);
     }
+
     @Test
-    public void adoptSetsAdoptedToTrue(){
+    public void adoptSetsAdoptedToTrue() {
         underTest.adopt();
         boolean result = underTest.getAdopted();
         assertTrue(result);
     }
 
-}
+    }
+
+

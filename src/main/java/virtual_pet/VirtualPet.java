@@ -35,15 +35,21 @@ public class VirtualPet {
     }
 
     public void feedOrOil() {
-        if (this.getType().equalsIgnoreCase("Organic")){
+        if (this.getType().equalsIgnoreCase("Organic")) {
             System.out.println("You fed " + this.getName());
-        }else if(this.getType().equalsIgnoreCase("Cyborg")){
+        } else if (this.getType().equalsIgnoreCase("Cyborg")) {
             System.out.println("You Oiled " + this.getName());
         }
         hunger -= 3;
         if (hunger < 0) {
             hunger = 0;
         }
+        if (type == "Organic") {
+            System.out.println(getName() + " currently has a hunger of: " + hunger);
+        } else {
+            System.out.println(getName() + "currently has a oil need of: " + hunger);
+        }
+
     }
 
     public int getBored() {
@@ -74,11 +80,11 @@ public class VirtualPet {
 
 
     public void tick() {
-            this.bored();
-            this.hungry();
-            if (this.getHunger() == 10) {
-                this.health -= 5;
-            }
+        this.bored();
+        this.hungry();
+        if (this.getHunger() == 10) {
+            this.health -= 5;
+        }
 
     }
 
@@ -88,5 +94,12 @@ public class VirtualPet {
 
     public boolean getAdopted() {
         return this.adopted;
+    }
+    public void getRundown(){
+        System.out.println("Name: " + name);
+        System.out.println("Type: " + type );
+        System.out.println("Health: " + health );
+        System.out.println("Hunger/Oil: " + hunger );
+        System.out.println("Boredom: " + bored );
     }
 }
