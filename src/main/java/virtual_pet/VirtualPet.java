@@ -1,23 +1,17 @@
 package virtual_pet;
 
 public class VirtualPet {
-    private static final int DEFAULT_HUNGER = 0;
-    private static final int DEFAULT_BORED = 0;
-    private static final String DEFAULT_NAME = "";
-    private static final String DEFAULT_TYPE = "NOTYPE";
-    private static final String DEFAULT_STATUS = "unAdopted";
-    private static final int DEFAULT_HEALTH = 100;
 
-    private int health = DEFAULT_HEALTH;
-    private int hunger = DEFAULT_HUNGER;
-    private int bored = DEFAULT_BORED;
-    public String name = DEFAULT_NAME;
-    public String type = DEFAULT_TYPE;
-    private String status = DEFAULT_STATUS;
+    private int health = 100;
+    private int hunger = 0;
+    private int bored = 0;
+    public String name = "";
+    public String type = "NOTYPE";
+    private String status = "unAdopted";
 
 
     public VirtualPet(String name, String petType) {
-        this.name = name;
+        this.name = name.toUpperCase();
 
         if (petType.equalsIgnoreCase("C")) {
             this.type = "Cyborg";
@@ -41,13 +35,12 @@ public class VirtualPet {
     }
 
     public void feedOrOil() {
-        this.tick();
         if (this.getType().equalsIgnoreCase("Organic")){
             System.out.println("You fed " + this.getName());
         }else if(this.getType().equalsIgnoreCase("Cyborg")){
             System.out.println("You Oiled " + this.getName());
         }
-        hunger -= 4;
+        hunger -= 3;
         if (hunger < 0) {
             hunger = 0;
         }
@@ -65,7 +58,6 @@ public class VirtualPet {
     }
 
     public void activity() {
-        this.tick();
         this.bored -= 2;
         if (this.bored < 0) {
             this.bored = 0;
@@ -89,11 +81,11 @@ public class VirtualPet {
     }
 
     public void tick() {
-        this.bored();
-        this.hungry();
-        if (this.getHunger() == 10) {
-            this.health -= 5;
-        }
+            this.bored();
+            this.hungry();
+            if (this.getHunger() == 10) {
+                this.health -= 5;
+            }
 
     }
 

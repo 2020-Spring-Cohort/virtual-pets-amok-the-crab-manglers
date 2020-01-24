@@ -44,10 +44,9 @@ public class Shelter {
     }
 
     public void choosePet(String choice) {
-        System.out.println("You chose " + choice + "!");
-        System.out.println("He is " + this.pets.get(choice).getType());
-        this.pets.get(choice).setStatus("Adopted");
-        this.pets.get(choice).tick();
+        System.out.println("You chose " + choice.toUpperCase() + "!");
+        System.out.println("He is " + this.pets.get(choice.toUpperCase()).getType());
+        this.pets.get(choice.toUpperCase()).setStatus("Adopted");
     }
 
 
