@@ -1,16 +1,11 @@
 package virtual_pet;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
 
 public class Shelter {
 
-    private static final int DEFAULT_PET_NUMBER = 0;
-
-    private int numberOfPets = DEFAULT_PET_NUMBER;
+    private int numberOfPets = 0;
     public Map<String, VirtualPet> pets = new HashMap<>();
 
     public Shelter() {
@@ -34,19 +29,17 @@ public class Shelter {
     }
 
 
-    public Map<String, VirtualPet> getPets() {
-        return pets;
-    }
 
-    public void listPets() {
-        System.out.println("Choose between Bob (Organic) & Charlie (Cyborg)");
-        System.out.println(pets.keySet());
+
+    public String listPets() {
+        System.out.println("Make your choice..");
+       return this.pets.keySet().toString();
     }
 
     public void choosePet(String choice) {
         System.out.println("You chose " + choice.toUpperCase() + "!");
         System.out.println("He is " + this.pets.get(choice.toUpperCase()).getType());
-        this.pets.get(choice.toUpperCase()).setStatus("Adopted");
+        this.pets.get(choice.toUpperCase()).adopt();
     }
 
 

@@ -5,9 +5,9 @@ public class VirtualPet {
     private int health = 100;
     private int hunger = 0;
     private int bored = 0;
-    public String name = "";
+    public String name;
     public String type = "NOTYPE";
-    private String status = "unAdopted";
+    private boolean adopted = false;
 
 
     public VirtualPet(String name, String petType) {
@@ -69,16 +69,9 @@ public class VirtualPet {
     }
 
     public void adopt() {
-        this.status = "Adopted";
+        this.adopted = true;
     }
 
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String newStatus) {
-        this.status = newStatus;
-    }
 
     public void tick() {
             this.bored();
@@ -91,5 +84,9 @@ public class VirtualPet {
 
     public int getHealth() {
         return this.health;
+    }
+
+    public boolean getAdopted() {
+        return this.adopted;
     }
 }

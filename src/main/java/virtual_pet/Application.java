@@ -15,7 +15,7 @@ public class Application {
             System.out.println("|             "+ shelter.pets.keySet() + "              |");
             System.out.println("|_________________________________________|");
 
-        shelter.listPets();
+            System.out.println(shelter.listPets());
         String choice = input.nextLine();
         shelter.choosePet(choice);
 

@@ -3,17 +3,18 @@ package virtual_pet;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class VirtualPetTest {
 
     private VirtualPet underTest;
 
+
     @BeforeEach
     void setUp() {
-        underTest = new VirtualPet("", "");
+        underTest = new VirtualPet("", "O");
     }
+
 
     @Test
     public void shouldBeAbleToCreateVirtualPet() {
@@ -69,16 +70,12 @@ public class VirtualPetTest {
         assertEquals(0, underTest.getBored());
     }
 
-    @Test
-    public void typeShouldInitializeToNoType() {
-        String result = underTest.getType();
-        assertEquals("NOTYPE", result);
-    }
+
 
     @Test
-    public void statusShouldBeUnAdoptedByDefault() {
-        String result = underTest.getStatus();
-        assertEquals("unAdopted", result);
+    public void adoptedStatusShouldBeFalse() {
+        boolean result = underTest.getAdopted();
+        assertFalse(result);
     }
 
     @Test
@@ -100,6 +97,17 @@ public class VirtualPetTest {
         underTest.tick();
         int result = underTest.getBored();
         assertEquals(1, result);
+    }
+    @Test
+    public void getHealthReturnsHealth(){
+        int result = underTest.getHealth();
+        assertTrue(result == 100 );
+    }
+    @Test
+    public void adoptSetsAdoptedToTrue(){
+        underTest.adopt();
+        boolean result = underTest.getAdopted();
+        assertTrue(result);
     }
 
 }
