@@ -3,23 +3,22 @@ package virtual_pet;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.HashMap;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class VirtualPetTest {
 
     private VirtualPet underTest;
-
+    HashMap<String, String> tricks = new HashMap<>();
 
     @BeforeEach
     void setUp() {
-        underTest = new VirtualPet("", "O");
+        underTest = new VirtualPet("", "O", tricks);
     }
 
 
-    @Test
-    public void shouldBeAbleToCreateVirtualPet() {
-        VirtualPet underTest = new VirtualPet("", "");
-    }
+   
 
     @Test
     public void petShouldHaveBlankName() {
@@ -101,7 +100,7 @@ public class VirtualPetTest {
     @Test
     public void getHealthReturnsHealth() {
         int result = underTest.getHealth();
-        assertTrue(result == 100);
+        assertEquals(100, result);
     }
 
     @Test

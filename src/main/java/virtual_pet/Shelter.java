@@ -9,8 +9,13 @@ public class Shelter {
     public Map<String, VirtualPet> pets = new HashMap<>();
 
     public Shelter() {
-        VirtualPet bob = new VirtualPet("Bob", "O");
-        VirtualPet charlie = new VirtualPet("Charlie", "C");
+        HashMap<String, String> bobTricks = new HashMap<>();
+        HashMap<String, String> charlieTricks = new HashMap<>();
+        bobTricks.put("Backflip", "Bob does a backflip!");
+        charlieTricks.put("Backflip", "Charlie does a backflip!");
+        charlieTricks.put("Hover", "Charlie hovers with thrusters!");
+        VirtualPet bob = new VirtualPet("Bob", "O", bobTricks);
+        VirtualPet charlie = new VirtualPet("Charlie", "C", charlieTricks);
         this.addPet(bob);
         this.addPet(charlie);
     }
@@ -28,18 +33,16 @@ public class Shelter {
         this.setNumberOfPets(this.pets.size());
     }
 
-
-
-
     public String listPets() {
         System.out.println("Make your choice..");
-       return this.pets.keySet().toString();
+        return this.pets.keySet().toString();
     }
 
     public void choosePet(String choice) {
         System.out.println("You chose " + choice.toUpperCase() + "!");
         System.out.println("He is " + this.pets.get(choice.toUpperCase()).getType());
         this.pets.get(choice.toUpperCase()).adopt();
+        this.pets.get(choice.toUpperCase()).getRundown();
     }
 
 

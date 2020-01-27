@@ -1,5 +1,7 @@
 package virtual_pet;
 
+import java.util.HashMap;
+
 public class VirtualPet {
 
     private int health = 100;
@@ -8,9 +10,11 @@ public class VirtualPet {
     public String name;
     public String type = "NOTYPE";
     private boolean adopted = false;
+    private HashMap<String, String> tricks;
 
 
-    public VirtualPet(String name, String petType) {
+
+    public VirtualPet(String name, String petType, HashMap<String, String> tricks) {
         this.name = name.toUpperCase();
 
         if (petType.equalsIgnoreCase("C")) {
@@ -19,6 +23,7 @@ public class VirtualPet {
         if (petType.equalsIgnoreCase("O")) {
             this.type = "Organic";
         }
+        this.tricks = tricks;
 
     }
 
@@ -44,7 +49,7 @@ public class VirtualPet {
         if (hunger < 0) {
             hunger = 0;
         }
-        if (type == "Organic") {
+        if (type.equals("Organic")) {
             System.out.println(getName() + " currently has a hunger of: " + hunger);
         } else {
             System.out.println(getName() + "currently has a oil need of: " + hunger);
@@ -70,6 +75,7 @@ public class VirtualPet {
         }
     }
 
+
     public void hungry() {
         this.hunger += 1;
     }
@@ -77,7 +83,6 @@ public class VirtualPet {
     public void adopt() {
         this.adopted = true;
     }
-
 
     public void tick() {
         this.bored();
@@ -101,5 +106,6 @@ public class VirtualPet {
         System.out.println("Health: " + health );
         System.out.println("Hunger/Oil: " + hunger );
         System.out.println("Boredom: " + bored );
+        System.out.println("Tricks: " + this.tricks.keySet());
     }
 }

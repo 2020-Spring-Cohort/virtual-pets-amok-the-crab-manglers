@@ -19,13 +19,14 @@ public class Application {
         String choice = input.nextLine();
         shelter.choosePet(choice);
 
-        mainLoop(choice);
+
+//        mainLoop(choice);
+//    }
+//
+//
+//    public static void mainLoop(String choice) {
+//        shelter.pets.get(choice).tick();
     }
 
 
-    public static void mainLoop(String choice) {
-        shelter.pets.get(choice).tick();
-    }
-
-
-}
+            }
