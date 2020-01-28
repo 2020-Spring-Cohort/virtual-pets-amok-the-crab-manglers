@@ -9,16 +9,14 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class VirtualPetTest {
 
-    private VirtualPet underTest;
-    HashMap<String, String> tricks = new HashMap<>();
+    private HashMap<String, String> tricks = new HashMap<>();
+    private VirtualPet underTest = new VirtualPet("BOB","O", tricks);
 
     @BeforeEach
     void setUp() {
-        underTest = new VirtualPet("", "O", tricks);
+        underTest = new VirtualPet("BOB", "O", tricks);
     }
 
-
-   
 
     @Test
     public void petShouldHaveBlankName() {
@@ -110,6 +108,31 @@ public class VirtualPetTest {
         assertTrue(result);
     }
 
+    @Test
+    public void trickShouldReturnTrickText() {
+        underTest.setTricks("Backflip", "Bob does a backflip!");
+        String trickText = underTest.doTrick("Backflip");
+        assertEquals("Bob does a backflip!", trickText);
+    }
+
+    @Test
+    public void getTypeShouldReturnType() {
+        assertEquals("Organic", underTest.getType());
+    }
+
+    @Test
+    public void getNameShouldReturnName() {
+        assertEquals("BOB", underTest.getName());
     }
 
 
+    @Test
+    public void setHealthShouldChangeHealth(){
+        underTest.setHealth(50);
+        assertEquals(50, underTest.getHealth());
+    }
+
+
+
+
+}

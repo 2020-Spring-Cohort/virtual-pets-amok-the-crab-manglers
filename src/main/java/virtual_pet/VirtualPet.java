@@ -11,8 +11,7 @@ public class VirtualPet {
     public String type = "NOTYPE";
     private boolean adopted = false;
     private HashMap<String, String> tricks;
-
-
+    private boolean isAlive = true;
 
     public VirtualPet(String name, String petType, HashMap<String, String> tricks) {
         this.name = name.toUpperCase();
@@ -27,16 +26,36 @@ public class VirtualPet {
 
     }
 
+    public void listTricks(){
+        System.out.println(this.tricks.keySet());
+    }
+
     public String getType() {
         return type;
     }
 
+    public void setName(String name){
+        this.name = name;
+    }
+
     public String getName() {
-        return this.name;
+        return name;
+    }
+
+    public void setHealth(int health) {
+        this.health = health;
     }
 
     public int getHunger() {
         return hunger;
+    }
+
+    public void setTricks(String key, String value){
+        this.tricks.put(key, value);
+    }
+
+    public HashMap<String, String> getTricks(){
+        return this.tricks;
     }
 
     public void feedOrOil() {
@@ -84,13 +103,30 @@ public class VirtualPet {
         this.adopted = true;
     }
 
+    public boolean isAlive() {
+        return isAlive;
+    }
+
+    public void setAlive(boolean alive) {
+        isAlive = alive;
+    }
+
     public void tick() {
         this.bored();
         this.hungry();
-        if (this.getHunger() == 10) {
+        if (this.getHunger() >= 10) {
             this.health -= 5;
         }
+        if (this.getHealth() == 0){
+            this.setAlive(false);
+            System.out.println(this.name + " has starved to death, you scoundrel!");
+        }
 
+    }
+
+    public void doTrick(String trickName){
+        this.activity();
+        System.out.println(this.tricks.get(trickName));
     }
 
     public int getHealth() {
@@ -100,6 +136,16 @@ public class VirtualPet {
     public boolean getAdopted() {
         return this.adopted;
     }
+
+    public void takeToVet(){
+        int oldHealth = this.getHealth();
+        this.setHealth(oldHealth + 20);
+        if (this.getHealth() > 100){this.setHealth(100);}
+
+        System.out.println("You take " + this.getName() + " to the vet. His health increases from " + oldHealth + " to " +
+                this.getHealth());
+    }
+
     public void getRundown(){
         System.out.println("Name: " + name);
         System.out.println("Type: " + type );
