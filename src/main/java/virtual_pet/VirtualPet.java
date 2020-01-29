@@ -76,7 +76,7 @@ public class VirtualPet {
     }
 
     public void activity() {
-        this.bored -= 2;
+        this.bored -= 3;
         if (this.bored < 0) {
             this.bored = 0;
         }
