@@ -117,7 +117,7 @@ public class VirtualPet {
         if (this.getHunger() >= 10) {
             this.health -= (5 + (this.getHunger()-10));
         }
-        if (this.getHealth() == 0){
+        if (this.getHealth() <= 0){
             this.setAlive(false);
             System.out.println(this.name + " has starved to death, you scoundrel!");
         }
