@@ -115,7 +115,7 @@ public class VirtualPet {
         this.bored();
         this.hungry();
         if (this.getHunger() >= 10) {
-            this.health -= 5;
+            this.health -= (5 + (this.getHunger()-10));
         }
         if (this.getHealth() == 0){
             this.setAlive(false);
