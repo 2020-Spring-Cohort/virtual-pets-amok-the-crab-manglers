@@ -6,7 +6,7 @@ public class Application {
     static Scanner input = new Scanner(System.in);
     static Shelter shelter = new Shelter();
 
-    public static void crabDoesTrick(String petChoice){
+    public static void crabDoesTrick(String petChoice) {
         Scanner trickSelection = new Scanner(System.in);
         System.out.println(shelter.pets.get(petChoice).getName() +
                 " can do the following tricks: ");
@@ -44,27 +44,27 @@ public class Application {
                 " to the vet\n4: Pet your crab\n5: Return your pet to the shelter\n6: Exit game");
         int userSelection = scanner.nextInt();
 
-        if (!shelter.pets.get(choice).isAlive()){
+        if (!shelter.pets.get(choice).isAlive()) {
             System.out.println("Oh my gosh! You killed " + shelter.pets.get(choice).getName() + "!" +
                     " You b@$#^#d! You allowed him to literally STARVE TO DEATH you despicable human being!\n" +
                     "How dare you treat your precious virtual pet this way! You are worse than Stalin!");
             userSelection = 6;
         }
 
-        switch(userSelection){
-            case 0 :
+        switch (userSelection) {
+            case 0:
                 shelter.pets.get(choice).getRundown();
                 break;
-            case 1 :
+            case 1:
                 crabDoesTrick(choice);
                 break;
-            case 2 :
+            case 2:
                 shelter.pets.get(choice).feedOrOil();
                 break;
-            case 3 :
+            case 3:
                 shelter.pets.get(choice).takeToVet();
                 break;
-            case 4 :
+            case 4:
                 System.out.println(shelter.pets.get(choice).getName() + " chitters happily and pinches the crap out of your finger.");
                 break;
             case 5:
@@ -76,11 +76,11 @@ public class Application {
                 shelter.choosePet(newChoice.toUpperCase());
                 break;
         }
-    if (userSelection != 6){
-        mainLoop(newChoice.toUpperCase());
-    }
+        if (userSelection != 6) {
+            mainLoop(newChoice.toUpperCase());
+        }
 
     }
 
 
-            }
+}

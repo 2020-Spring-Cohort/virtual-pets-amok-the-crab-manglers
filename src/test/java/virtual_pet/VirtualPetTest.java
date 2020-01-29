@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class VirtualPetTest {
 
     private HashMap<String, String> tricks = new HashMap<>();
-    private VirtualPet underTest = new VirtualPet("BOB","O", tricks);
+    private VirtualPet underTest = new VirtualPet("BOB", "O", tricks);
 
     @BeforeEach
     void setUp() {
@@ -120,12 +120,10 @@ public class VirtualPetTest {
 
 
     @Test
-    public void setHealthShouldChangeHealth(){
+    public void setHealthShouldChangeHealth() {
         underTest.setHealth(50);
         assertEquals(50, underTest.getHealth());
     }
-
-
 
 
 }

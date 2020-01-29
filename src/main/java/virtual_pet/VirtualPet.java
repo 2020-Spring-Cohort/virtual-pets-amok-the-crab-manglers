@@ -26,16 +26,12 @@ public class VirtualPet {
 
     }
 
-    public void listTricks(){
+    public void listTricks() {
         System.out.println(this.tricks.keySet());
     }
 
     public String getType() {
         return type;
-    }
-
-    public void setName(String name){
-        this.name = name;
     }
 
     public String getName() {
@@ -48,14 +44,6 @@ public class VirtualPet {
 
     public int getHunger() {
         return hunger;
-    }
-
-    public void setTricks(String key, String value){
-        this.tricks.put(key, value);
-    }
-
-    public HashMap<String, String> getTricks(){
-        return this.tricks;
     }
 
     public void feedOrOil() {
@@ -115,16 +103,16 @@ public class VirtualPet {
         this.bored();
         this.hungry();
         if (this.getHunger() >= 10) {
-            this.health -= (5 + (this.getHunger()-10));
+            this.health -= (5 + (this.getHunger() - 10));
         }
-        if (this.getHealth() <= 0){
+        if (this.getHealth() <= 0) {
             this.setAlive(false);
             System.out.println(this.name + " has starved to death, you scoundrel!");
         }
 
     }
 
-    public void doTrick(String trickName){
+    public void doTrick(String trickName) {
         this.activity();
         System.out.println(this.tricks.get(trickName));
     }
@@ -137,21 +125,23 @@ public class VirtualPet {
         return this.adopted;
     }
 
-    public void takeToVet(){
+    public void takeToVet() {
         int oldHealth = this.getHealth();
         this.setHealth(oldHealth + 20);
-        if (this.getHealth() > 100){this.setHealth(100);}
+        if (this.getHealth() > 100) {
+            this.setHealth(100);
+        }
 
         System.out.println("You take " + this.getName() + " to the vet. His health increases from " + oldHealth + " to " +
                 this.getHealth());
     }
 
-    public void getRundown(){
+    public void getRundown() {
         System.out.println("Name: " + name);
-        System.out.println("Type: " + type );
-        System.out.println("Health: " + health );
-        System.out.println("Hunger/Oil: " + hunger );
-        System.out.println("Boredom: " + bored );
+        System.out.println("Type: " + type);
+        System.out.println("Health: " + health);
+        System.out.println("Hunger/Oil: " + hunger);
+        System.out.println("Boredom: " + bored);
         System.out.println("Tricks: " + this.tricks.keySet());
     }
 }
