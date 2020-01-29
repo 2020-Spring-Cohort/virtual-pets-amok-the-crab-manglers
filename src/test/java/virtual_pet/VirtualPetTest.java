@@ -109,13 +109,6 @@ public class VirtualPetTest {
     }
 
     @Test
-    public void trickShouldReturnTrickText() {
-        underTest.setTricks("Backflip", "Bob does a backflip!");
-        String trickText = underTest.doTrick("Backflip");
-        assertEquals("Bob does a backflip!", trickText);
-    }
-
-    @Test
     public void getTypeShouldReturnType() {
         assertEquals("Organic", underTest.getType());
     }

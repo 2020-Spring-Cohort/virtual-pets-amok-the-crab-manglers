@@ -11,9 +11,9 @@ public class Shelter {
     public Shelter() {
         HashMap<String, String> bobTricks = new HashMap<>();
         HashMap<String, String> charlieTricks = new HashMap<>();
-        bobTricks.put("Backflip", "Bob does a backflip!");
-        charlieTricks.put("Backflip", "Charlie does a backflip!");
-        charlieTricks.put("Hover", "Charlie hovers with thrusters!");
+        bobTricks.put("BACKFLIP", "Bob does a backflip!");
+        charlieTricks.put("BACKFLIP", "Charlie does a backflip!");
+        charlieTricks.put("HOVER", "Charlie hovers with thrusters!");
         VirtualPet bob = new VirtualPet("Bob", "O", bobTricks);
         VirtualPet charlie = new VirtualPet("Charlie", "C", charlieTricks);
         this.addPet(bob);

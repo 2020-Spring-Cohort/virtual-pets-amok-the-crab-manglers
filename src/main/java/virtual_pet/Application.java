@@ -12,7 +12,7 @@ public class Application {
                 " can do the following tricks: ");
         shelter.pets.get(petChoice).listTricks();
         System.out.println("Please type the name of the trick you would like him to do.");
-        shelter.pets.get(petChoice).doTrick(trickSelection.nextLine());
+        shelter.pets.get(petChoice).doTrick(trickSelection.nextLine().toUpperCase());
     }
 
     public static void main(String[] args) {
@@ -37,17 +37,18 @@ public class Application {
 
     public static void mainLoop(String choice) {
         shelter.pets.get(choice).tick();
+        String newChoice = choice.toUpperCase();
         Scanner scanner = new Scanner(System.in);
         System.out.println("Make your selection: \n0: Display stats\n1: Do a trick\n" +
                 "2: Feed or oil your pet\n3: Take " + shelter.pets.get(choice).getName() +
-                " to the vet\n4: Pet your crab\n5: Exit game");
+                " to the vet\n4: Pet your crab\n5: Return your pet to the shelter\n6: Exit game");
         int userSelection = scanner.nextInt();
 
         if (!shelter.pets.get(choice).isAlive()){
             System.out.println("Oh my gosh! You killed " + shelter.pets.get(choice).getName() + "!" +
                     " You b@$#^#d! You allowed him to literally STARVE TO DEATH you despicable human being!\n" +
                     "How dare you treat your precious virtual pet this way! You are worse than Stalin!");
-            userSelection = 5;
+            userSelection = 6;
         }
 
         switch(userSelection){
@@ -64,12 +65,19 @@ public class Application {
                 shelter.pets.get(choice).takeToVet();
                 break;
             case 4 :
-                System.out.println("Your crab chitters happily and pinches the crap out of your finger.");
+                System.out.println(shelter.pets.get(choice).getName() + " chitters happily and pinches the crap out of your finger.");
                 break;
-
+            case 5:
+                Scanner newPet = new Scanner(System.in);
+                System.out.println("You return " + shelter.pets.get(choice).getName() + " to the shelter. The following pets are available:");
+                System.out.println(shelter.listPets());
+                System.out.println("Please type the name of the pet you want to adopt now.");
+                newChoice = newPet.next();
+                shelter.choosePet(newChoice.toUpperCase());
+                break;
         }
-    if (userSelection != 5){
-        mainLoop(choice);
+    if (userSelection != 6){
+        mainLoop(newChoice.toUpperCase());
     }
 
     }
