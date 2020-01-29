@@ -41,7 +41,7 @@ public class Application {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Make your selection: \n0: Display stats\n1: Do a trick\n" +
                 "2: Feed or oil your pet\n3: Take " + shelter.pets.get(choice).getName() +
-                " to the vet\n4: Pet your crab\n5: Return your pet to the shelter\n6: Exit game");
+                " to the vet\n4: Pet your crab\n5: Return your crab to the shelter\n6: Exit game");
         int userSelection = scanner.nextInt();
 
         if (!shelter.pets.get(choice).isAlive()) {
