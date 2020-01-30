@@ -5,7 +5,7 @@
 	 Welcome to the Crab Zone virtual pet simulator
 
 
-	Instructions for play:
+	Instructions to play:
 
 	
 	- On the start screen select a crab between Bob (Organic) or Charlie (Cyborg)
